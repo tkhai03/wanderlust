@@ -37,10 +37,10 @@ function NavBar() {
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>Destination</Link>
+                        <Link to='/destination' className='nav-links' onClick={closeMobileMenu}>Destination</Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>Favorites</Link>
+                        <Link to='/dashboard' className='nav-links' onClick={closeMobileMenu}>Dashboard</Link>
                     </li>
                     <li className='nav-item'>
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>About Us</Link>
