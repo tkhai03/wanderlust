@@ -19,7 +19,7 @@ function Destination() {
                         <TextField className = 'where-input' id="filled-basic" label="Where are you going?" variant="outlined" />
                     </form>
                         <div className='dest-button'>
-                        <Button className='add-dest-btn' variant="contained" size="medium" color="">Submit</Button>
+                        <Button className='add-dest-btn' variant="contained" size="medium" >Submit</Button>
                         </div>
             </div>
             <div className='edit-dest'>

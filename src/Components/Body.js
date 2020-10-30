@@ -2,6 +2,7 @@ import React from 'react';
 // import '../App.css';
 import { Button } from './Button'
 import Destination from './pages/Destination';
+import Register from './pages/Register'
 
 
 function Body() {
@@ -14,6 +15,7 @@ function Body() {
         <Button className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
+          to='/Register'
         >
           Register <i class="fas fa-plane-departure"></i>
         </Button>
