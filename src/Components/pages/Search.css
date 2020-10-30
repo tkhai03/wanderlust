@@ -1,0 +1,10 @@
+/* 
+.search {
+    position: relative;
+    top: 8rem;
+    left: 40%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    z-index: 20;
+} */
