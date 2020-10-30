@@ -21,7 +21,6 @@ function Register() {
     return (
         <div className='register'>
             <div className='register-box'>
-            <video src='/public/videos/video-1.mp4' autoPlay loop muted />
                 <h1 className='register-name'>Register <i class="fas fa-plane"></i></h1>
                     <form className='input-box' className={classes.root} noValidate autoComplete="off">
                         <TextField id="standard-basic" label="Email" />

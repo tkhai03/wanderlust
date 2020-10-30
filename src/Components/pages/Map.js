@@ -21,6 +21,7 @@ import {
 } from "@reach/combobox"
 import "@reach/combobox/styles.css"
 
+
 const libraries = ["places"]
 const mapContainerStyle = {
     width: '100%',
@@ -41,24 +42,48 @@ function Map() {
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
         libraries,
     })
+    const [markers, setMarkers] = React.useState([])
+    const [selected, setSelected] = React.useState(null)
+
+    const onMapClick = React.useCallback((e) => {
+        setMarkers((current) => [
+            ...current,
+            {
+                lat: e.latLng.lat(),
+                lng: e.latLng.lng(),
+            }
+        ])
+    }, [])
+
+    const mapRef = React.useRef()
+    const onMapLoad = React.useCallback((map) => {
+        mapRef.current = map
+    }, [])
+
+    const panTo = React.useCallback(({lat, lng}) => {
+        mapRef.current.panTo({lat, lng})
+        mapRef.current.setZoom(14)
+    }, [])
 
     if (loadError) return "Error loading maps"
-    if (!isLoaded) return "Loading Maps"
+    if (!isLoaded) return "Loading..."
 
     return (
         <div className='map'>
-            <Search />
+            <Search panTo={panTo}/>
 
            <GoogleMap 
            mapContainerStyle={mapContainerStyle}
            zoom={8}
            center={center}
            options={options}
+           onClick={onMapClick}
+           onLoad={onMapLoad}
            ></GoogleMap>
         </div>
     )
 }
-function Search() {
+function Search({panTo}) {
     const {ready, value, suggestions:{status, data}, setValue, clearSuggestion} = usePlacesAutocomplete({
         requestOptions: {
             location: {lat: () => 35.6762,lng: () => 139.6503},

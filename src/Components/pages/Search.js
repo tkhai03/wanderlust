@@ -23,7 +23,7 @@ function Search() {
 
     return (
         <div>
-            <Combobox onSelect={(address) => {console.log(address)}}>
+            <Combobox onSelect={(address) => {console.log(address}}>
             <ComboboxInput 
             value={value} 
             onChange={(e) => { setValue(e.target.value)}}
